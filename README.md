@@ -1,107 +1,128 @@
-# HoliFest 2024 - Decentralized Ticket Platform 🎨
+<div align="center">
 
-A blockchain-powered ticketing solution for Nepal's most vibrant festival celebration, built with Ethereum smart contracts.
-## Platform Preview 📸
+# 🎨 HoliFest 2024 - Decentralized Ticket Platform
 
-![HoliFest Platform Interface](images/screencapture-localhost-3000-2024-10-30-00_21_57.pdf)
+<img src="images/screencapture-localhost-3000-2024-10-30-00_21_57.pdf" alt="Platform Preview" width="800"/>
 
-> 📄 [View Full PDF](images/screencapture-localhost-3000-2024-10-30-00_21_57.pdf)
-## Project Overview 🌟
+<br/>
 
-HoliFest 2024 revolutionizes traditional ticket sales by leveraging blockchain technology to create a secure, transparent, and efficient ticketing system. This platform eliminates counterfeit tickets, enables secure ticket transfers, and provides a trustworthy resale marketplace.
+# [🌟 LIVE DEMO 🌟](https://holi-fest-pass.vercel.app/)
+### [https://holi-fest-pass.vercel.app/](https://holi-fest-pass.vercel.app/)
 
-## Key Features 🎯
+<br/>
 
-- **Secure Ticket Purchase**: Buy tickets directly using cryptocurrency
-- **Transparent Ownership**: Track ticket ownership on the blockchain
-- **Resale Marketplace**: List and purchase verified resale tickets
-- **Ticket Swapping**: Exchange tickets with other attendees
-- **Day-wise Ticketing**: Different tickets for each festival day
-- **Manager Controls**: Special features for event organizers
+[![Ethereum](https://img.shields.io/badge/Blockchain-Ethereum-blue?style=for-the-badge&logo=ethereum)](https://ethereum.org/)
+[![Sepolia](https://img.shields.io/badge/Network-Sepolia-green?style=for-the-badge)](https://sepolia.dev/)
+[![Next.js](https://img.shields.io/badge/Framework-Next.js-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![Vercel](https://img.shields.io/badge/Deployment-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/)
 
-## Technical Stack 💻
+</div>
 
-- **Smart Contracts**: Solidity
-- **Frontend**: React.js
-- **Blockchain**: Ethereum (Sepolia Testnet)
-- **Web3 Integration**: ethers.js
-- **Development**: Hardhat
+---
 
-## Getting Started 🚀
+## 📌 Quick Links
+- 🌐 [Live Platform](https://holi-fest-pass.vercel.app/)
+- 📝 [Smart Contract](https://sepolia.etherscan.io/address/0xCB4B5f0E4c0cA7338e6bDdAefFD9DD77D090191f)
+- 🎫 [Buy Tickets](https://holi-fest-pass.vercel.app/)
+- 📚 [Documentation](#documentation)
 
-1. Clone the repository:
-```bash
-git clone https://github.com/abhishekyadav/holifest.git
-cd holifest
+## 🚀 About The Project
+
+HoliFest 2024 revolutionizes festival ticketing through blockchain technology, offering a secure and transparent platform for Nepal's most vibrant celebration.
+
+## ✨ Key Features
+
+| Feature | Description |
+|---------|-------------|
+| 🎟️ **Secure Ticketing** | Purchase tickets directly with cryptocurrency |
+| 🔄 **Resale Market** | List and buy verified resale tickets |
+| 🤝 **Ticket Swapping** | Exchange tickets with other attendees |
+| 📅 **Day-wise Access** | Different tickets for each festival day |
+| 👨‍💼 **Manager Dashboard** | Comprehensive control panel for organizers |
+| ✅ **Validation System** | Instant ticket verification |
+
+## 🛠️ Technology Stack
+
+<div align="center">
+
+| Layer | Technologies |
+|-------|--------------|
+| Frontend | Next.js, React, Web3Modal |
+| Blockchain | Ethereum, Solidity, Hardhat |
+| Deployment | Vercel, Sepolia Testnet |
+
+</div>
+
+## 📝 Smart Contract
+
+```solidity
+Contract Address: 0xCB4B5f0E4c0cA7338e6bDdAefFD9DD77D090191f
+Network: Sepolia Testnet
 ```
 
-2. Install dependencies:
+## 🚦 Getting Started
+
+1. **Visit**: [HoliFest Platform](https://holi-fest-pass.vercel.app/)
+2. **Connect**: Link your MetaMask wallet
+3. **Browse**: Explore available tickets
+4. **Purchase**: Buy tickets for your preferred day
+
+## 💻 Local Development
+
 ```bash
+# Clone the repository
+git clone https://github.com/abhiishek340/Holi-Fest-Pass.git
+
+# Install dependencies
 npm install
-```
 
-3. Create a `.env` file:
-```env
-INFURA_URL=https://sepolia.infura.io/v3/YOUR_INFURA_PROJECT_ID
-PRIVATE_KEY=YOUR_WALLET_PRIVATE_KEY
-MANAGER_ADDRESS=YOUR_MANAGER_WALLET_ADDRESS
-```
-
-4. Deploy the contract:
-```bash
-npx hardhat run scripts/deploy.js --network sepolia
-```
-
-5. Start the development server:
-```bash
+# Run development server
 npm run dev
 ```
 
-## Smart Contract Details 📝
+## 📱 Platform Features
 
-The TicketSale contract includes:
-- Ticket purchase functionality
-- Resale marketplace
-- Ticket swapping mechanism
-- Manager controls
-- Event tracking
+### For Users
+- ✅ Purchase tickets securely
+- 📊 List tickets for resale
+- 🔄 Swap tickets with others
+- 🔍 Verify ticket authenticity
+- 📜 Track transaction history
 
-## Security Features 🔒
+### For Managers
+- ➕ Add new tickets
+- 💰 Update ticket prices
+- 📈 Monitor sales statistics
+- ⚙️ Manage platform settings
 
-- Ownership verification
-- Secure transfers
-- Anti-fraud measures
-- Price controls
-- Manager authorization
+## 🤝 Contributing
 
-## Testing 🧪
+We welcome contributions! Please feel free to submit a Pull Request.
 
-Run the test suite:
-```bash
-npx hardhat test
-```
+## 📞 Contact & Support
 
-## Contributing 🤝
+<div align="center">
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+| Contact Method | Details |
+|----------------|---------|
+| 👤 **Developer** | Abhishek Yadav |
+| 🌐 **GitHub** | [@abhiishek340](https://github.com/abhiishek340) |
+| 📧 **Email** | [Contact Email](mailto:your.email@example.com) |
 
-## License 📄
+</div>
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## 🙏 Acknowledgments
 
-## Acknowledgments 🙏
+- Built for the Holi Festival community
+- Powered by Ethereum blockchain
+- Deployed on Vercel
 
-- Built by Abhishek Yadav
-- Inspired by Nepal's vibrant Holi festival
-- Special thanks to the Ethereum community
+<div align="center">
 
-## Contact 📧
+### ⭐ Star us on GitHub — it helps!
 
-Abhishek Yadav
-- GitHub: [@abhishekyadav](https://github.com/abhishekyadav)
-- Email: abhiishek340@gmail.com
-- LinkedIn: [Abhishek Yadav](https://linkedin.com/in/abhishekyadav)
+<hr/>
 
-## Project Status 🟢
+<h3>Made with ❤️ for the Holi Festival Community</h3>
 
-Active development - Contributions welcome!
+</div>
