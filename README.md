@@ -1,7 +1,11 @@
 # HoliFest 2024 - Decentralized Ticket Platform 🎨
 
 A blockchain-powered ticketing solution for Nepal's most vibrant festival celebration, built with Ethereum smart contracts.
+## Platform Preview 📸
 
+![HoliFest Platform Interface](images/screencapture-localhost-3000-2024-10-30-00_21_57.pdf)
+
+> 📄 [View Full PDF](images/screencapture-localhost-3000-2024-10-30-00_21_57.pdf)
 ## Project Overview 🌟
 
 HoliFest 2024 revolutionizes traditional ticket sales by leveraging blockchain technology to create a secure, transparent, and efficient ticketing system. This platform eliminates counterfeit tickets, enables secure ticket transfers, and provides a trustworthy resale marketplace.
