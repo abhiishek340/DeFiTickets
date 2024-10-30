@@ -1,0 +1,28 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Compiled contract files
+ABI.txt
+Bytecode.txt
+TicketSaleABI.json
+TicketSaleBytecode.bin
+
+# OS generated files
+.DS_Store
+
+# IDE specific files
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build directories
+build/
+dist/
