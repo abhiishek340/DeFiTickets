@@ -6,7 +6,7 @@ import Web3Modal from 'web3modal';
 import styles from '../styles/Home.module.css';
 import TicketSale from '../artifacts/contracts/TicketSale.sol/TicketSale.json';
 
-const contractAddress = "0xF7E5A4b07569Be41c3Af0829532cb62576388b53";
+const contractAddress = "0xCB4B5f0E4c0cA7338e6bDdAefFD9DD77D090191f";
 
 export default function Home() {
   const [account, setAccount] = useState('');
@@ -37,7 +37,6 @@ export default function Home() {
   const [eventLogs, setEventLogs] = useState([]);
   const [validationMessage, setValidationMessage] = useState('');
   const [ticketDetails, setTicketDetails] = useState(null);
-  const [ticketToBuy, setTicketToBuy] = useState('');
 
   useEffect(() => {
     initWeb3();
@@ -533,24 +532,6 @@ export default function Home() {
       {/* Available Tickets */}
       <div className={styles.card}>
         <h2 className={styles.heading}>Available Tickets</h2>
-        
-        <div className={styles.buyTicketSection}>
-          <input
-            type="number"
-            className={styles.input}
-            placeholder="Enter ticket number to buy"
-            value={ticketToBuy}
-            onChange={(e) => setTicketToBuy(e.target.value)}
-          />
-          <button
-            className={styles.button}
-            onClick={() => buyTicket(ticketToBuy)}
-            disabled={loading || !ticketToBuy}
-          >
-            Buy Ticket #{ticketToBuy}
-          </button>
-        </div>
-
         <div className={styles.grid}>
           {filteredTickets.map((ticket) => (
             <div key={ticket.id} className={styles.ticketCard}>
