@@ -234,4 +234,26 @@
     opacity: 0.8;
     transform: scale(1.5);
   }
+}
+
+.buyTicketSection {
+  margin: 20px 0;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.buyTicketSection input {
+  max-width: 200px;
+}
+
+.warningMessage {
+  background-color: rgba(255, 182, 193, 0.2);
+  border: 1px solid rgba(255, 182, 193, 0.5);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  margin: 1rem 0;
+  text-align: center;
+  color: white;
 } 

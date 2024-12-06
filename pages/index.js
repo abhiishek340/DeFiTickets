@@ -6,7 +6,7 @@ import Web3Modal from 'web3modal';
 import styles from '../styles/Home.module.css';
 import TicketSale from '../artifacts/contracts/TicketSale.sol/TicketSale.json';
 
-const contractAddress = "0xCB4B5f0E4c0cA7338e6bDdAefFD9DD77D090191f";
+const contractAddress = "0xF7E5A4b07569Be41c3Af0829532cb62576388b53";
 
 export default function Home() {
   const [account, setAccount] = useState('');
@@ -37,6 +37,7 @@ export default function Home() {
   const [eventLogs, setEventLogs] = useState([]);
   const [validationMessage, setValidationMessage] = useState('');
   const [ticketDetails, setTicketDetails] = useState(null);
+  const [ticketToBuy, setTicketToBuy] = useState('');
 
   useEffect(() => {
     initWeb3();
@@ -123,6 +124,26 @@ export default function Home() {
     }
   }
 
+  async function disconnect() {
+    try {
+      setAccount('');
+      setProvider(null);
+      setContract(null);
+      setOwnedTicket(null);
+      setIsManager(false);
+      
+      // Clear the Web3Modal cache
+      if (window.localStorage.getItem('WEB3_CONNECT_CACHED_PROVIDER')) {
+        window.localStorage.removeItem('WEB3_CONNECT_CACHED_PROVIDER');
+      }
+      
+      // Reload the page to ensure clean state
+      window.location.reload();
+    } catch (error) {
+      console.error("Error disconnecting wallet:", error);
+    }
+  }
+
   async function loadAvailableTickets() {
     if (!contract) return;
     setLoading(true);
@@ -185,20 +206,70 @@ export default function Home() {
     if (!contract) return;
     setLoading(true);
     try {
+      // First check if the ticket is available
+      const ticketDetails = await contract.getTicketDetails(ticketId);
+      if (ticketDetails.owner !== ethers.constants.AddressZero) {
+        alert("This ticket has already been sold!");
+        setLoading(false);
+        return;
+      }
+
+      // Get the current ticket price
       const price = await contract.ticketPrice();
+      
+      // Check user's balance
+      const balance = await provider.getBalance(account);
+      if (balance.lt(price)) {
+        alert("Insufficient funds to purchase ticket!");
+        setLoading(false);
+        return;
+      }
+
+      // Estimate gas to ensure transaction will succeed
+      const gasEstimate = await contract.estimateGas.buyTicket(ticketId, {
+        value: price
+      }).catch(error => {
+        console.error("Gas estimation failed:", error);
+        throw new Error("Transaction is likely to fail. Please check ticket availability and your balance.");
+      });
+
+      // Add 20% buffer to gas estimate
+      const gasLimit = gasEstimate.mul(120).div(100);
+
+      // Send transaction with estimated gas
       const tx = await contract.buyTicket(ticketId, {
         value: price,
-        gasLimit: 300000
+        gasLimit: gasLimit
       });
-      await tx.wait();
-      await loadAvailableTickets();
-      await loadOwnedTicket();
-      alert("Ticket purchased successfully!");
+
+      // Wait for transaction confirmation
+      const receipt = await tx.wait();
+      
+      if (receipt.status === 1) {
+        await loadAvailableTickets();
+        await loadOwnedTicket();
+        alert("Ticket purchased successfully!");
+      } else {
+        alert("Transaction failed. Please try again.");
+      }
     } catch (error) {
       console.error("Error buying ticket:", error);
-      alert("Error: " + error.message);
+      
+      // More specific error messages
+      if (error.message.includes("insufficient funds")) {
+        alert("Error: Insufficient funds to purchase ticket!");
+      } else if (error.message.includes("already sold")) {
+        alert("Error: This ticket has already been sold!");
+      } else if (error.message.includes("invalid ticket")) {
+        alert("Error: Invalid ticket ID!");
+      } else if (error.message.includes("gas")) {
+        alert("Error: Gas estimation failed. The transaction might fail.");
+      } else {
+        alert("Error: " + (error.reason || error.message));
+      }
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   }
 
   async function offerSwap() {
@@ -395,7 +466,7 @@ export default function Home() {
               <p>Connected: {account.substring(0, 6)}...{account.substring(38)}</p>
               {ownedTicket && <p>Ticket #{ownedTicket}</p>}
             </div>
-            <button className={styles.button} onClick={() => {}}>Disconnect</button>
+            <button className={styles.button} onClick={disconnect}>Disconnect</button>
           </div>
         ) : (
           <button className={styles.button} onClick={initWeb3}>
@@ -462,6 +533,24 @@ export default function Home() {
       {/* Available Tickets */}
       <div className={styles.card}>
         <h2 className={styles.heading}>Available Tickets</h2>
+        
+        <div className={styles.buyTicketSection}>
+          <input
+            type="number"
+            className={styles.input}
+            placeholder="Enter ticket number to buy"
+            value={ticketToBuy}
+            onChange={(e) => setTicketToBuy(e.target.value)}
+          />
+          <button
+            className={styles.button}
+            onClick={() => buyTicket(ticketToBuy)}
+            disabled={loading || !ticketToBuy}
+          >
+            Buy Ticket #{ticketToBuy}
+          </button>
+        </div>
+
         <div className={styles.grid}>
           {filteredTickets.map((ticket) => (
             <div key={ticket.id} className={styles.ticketCard}>
