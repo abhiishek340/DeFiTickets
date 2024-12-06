@@ -37,9 +37,9 @@
 }
 
 .subtitle {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1.2rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
+  font-size: 1rem;
 }
 
 .card {
@@ -256,4 +256,18 @@
   margin: 1rem 0;
   text-align: center;
   color: white;
+}
+
+.lookupSection, .returnTicketSection {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  margin-top: 1rem;
+}
+
+.searchResult {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  margin-top: 1rem;
 } 

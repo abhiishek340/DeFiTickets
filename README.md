@@ -1,177 +1,183 @@
 
-# 🎨 Tihar Ticket Sale - Decentralized Ticketing Platform  
+# 🎟️✨ **Tihar Ticket Sale - Decentralized Ticketing Platform**  
 
-## Platform Preview  
+---
+
+## ⚠️ **Important Note**  
+
+🚨 **Having trouble?** If you face any issues compiling the project, download and watch the **Loom video walkthrough** for step-by-step guidance!  
+
+---
+
+## 🌟 **Platform Preview**  
+
+![FindMyTickets](FindMyTickets.png)
+![Purchase](Purchase.png)
+![Tickets](Tickets.png)
+![Ticketlookup](Ticketlookup.png)
+![Swap](Swap.png)
+![Etherscan](Etherscan.png)
+![Resale](Resale.png)
+
+
 🎥 **Loom Video**  
-[Watch the walkthrough](loom-video.mp4)
-🌟 **LIVE DEMO** 🌟  
-[https://tihar-ticket-sale.vercel.app/](https://tihar-ticket-sale.vercel.app/)  
+[📺 Watch the Walkthrough](loom-video.mp4)  
 
-## Tech Stack  
+🌐 **LIVE DEMO**  
+### [https://holi-fest-pass.vercel.app/](https://holi-fest-pass.vercel.app/)
+---
 
-### **Blockchain**  
-- **Solidity** ^0.8.17 (Smart Contract)  
-- **Hardhat** (Development Environment)  
-- **Ethers.js** v5.7.2 (Blockchain Interaction)  
-- **Web3Modal** (Wallet Connection)  
-- **Sepolia Testnet**  
+## 🛠️ **Tech Stack**  
 
-### **Frontend**  
-- **Next.js** 15.0.2  
-- **React** 18.3.1  
-- **CSS Modules**  
-- **Web3.js**  
+### **🔗 Blockchain**  
+- **Solidity**: ^0.8.17  
+- **Hardhat**: Development Environment  
+- **Ethers.js**: v5.7.2 (Blockchain Interaction)  
+- **Web3Modal**: Wallet Connection  
+- **Sepolia Testnet**: Blockchain Network  
+
+### **💻 Frontend**  
+- **Next.js**: 15.0.2  
+- **React**: 18.3.1  
+- **CSS Modules**: Styling  
+- **Web3.js**: Blockchain Interaction  
 
 ---
 
-## 📌 Quick Links  
-- 🌐 [Live Platform](https://tihar-ticket-sale.vercel.app/)  
-- 📝 [Smart Contract](https://sepolia.etherscan.io/address/YOUR_CONTRACT_ADDRESS)  
-- 🎫 [Buy Tickets](https://tihar-ticket-sale.vercel.app/buy)  
-- 📚 [Documentation](https://tihar-ticket-sale.vercel.app/docs)  
+## 📌 **Quick Links**  
+
+🔗 [**Live Platform**](https://tihar-ticket-sale.vercel.app/)  
+📝 [**Smart Contract**](https://sepolia.etherscan.io/address/YOUR_CONTRACT_ADDRESS)  
+🎫 [**Buy Tickets**](https://tihar-ticket-sale.vercel.app/buy)  
+📚 [**Documentation**](https://tihar-ticket-sale.vercel.app/docs)  
 
 ---
 
-## 🚀 About The Project  
+## 🚀 **About The Project**  
 
-Tihar Ticket Sale revolutionizes event ticketing for Nepal's cherished Tihar festival. Built on Ethereum blockchain technology, the platform ensures security, transparency, and an immersive user experience.  
+🎉 **Tihar Ticket Sale** modernizes event ticketing for Nepal’s Tihar festival. Powered by Ethereum blockchain, the platform offers secure, transparent, and innovative features.  
 
-### ✨ Key Features  
+---
 
-| Feature              | Description                                 |  
+### ✨ **Key Features**  
+
+| 🌟 **Feature**       | 🔍 **Description**                         |  
 |----------------------|---------------------------------------------|  
-| 🎟️ Secure Ticketing  | Purchase tickets directly with cryptocurrency |  
-| 🔄 Resale Market      | List and buy verified resale tickets       |  
-| 🤝 Ticket Swapping    | Exchange tickets with other attendees       |  
-| 📅 Day-wise Access    | Different tickets for each festival day     |  
-| 👨‍💼 Manager Dashboard | Comprehensive control panel for organizers   |  
-| ✅ Validation System   | Instant ticket verification                 |  
+| 🎟️ **Secure Ticketing**  | Buy tickets using cryptocurrency            |  
+| 🔄 **Resale Market**      | Sell and buy verified resale tickets        |  
+| 🤝 **Ticket Swapping**    | Exchange tickets with other users           |  
+| 📅 **Day-wise Access**    | Separate tickets for each festival day      |  
+| 👨‍💼 **Manager Dashboard** | Manage tickets, pricing, and analytics      |  
+| ✅ **Validation System**   | Instant blockchain ticket validation        |  
 
 ---
 
-## 📋 Prerequisites  
+## 📋 **Prerequisites**  
 
-- **Node.js** (v14 or higher)  
-- **MetaMask Wallet**  
-- **Sepolia Testnet ETH**  
-- **Infura Account**  
+💡 Before you begin, make sure you have the following:  
+- 🖥️ **Node.js**: v14 or higher  
+- 🔐 **MetaMask Wallet**  
+- 🌐 **Sepolia Testnet ETH**  
+- 🔗 **Infura Account**  
 
 ---
 
-## 🔧 Installation & Setup  
+## 🛠️ **Installation & Setup**  
 
-1. **Clone the repository:**  
+### Step 1️⃣: **Clone the repository**  
 ```bash  
 git clone https://github.com/abhiishek340/Tihar-Ticket-Sale.git  
 cd Tihar-Ticket-Sale  
 ```  
 
-2. **Install dependencies:**  
+### Step 2️⃣: **Install dependencies**  
 ```bash  
 npm install  
 ```  
 
-3. **Environment setup:**  
+### Step 3️⃣: **Environment setup**  
 Create a `.env` file in the root directory:  
-
 ```env  
 INFURA_URL=https://sepolia.infura.io/v3/YOUR_INFURA_PROJECT_ID  
 PRIVATE_KEY=YOUR_WALLET_PRIVATE_KEY  
 MANAGER_ADDRESS=YOUR_MANAGER_WALLET_ADDRESS  
 ```  
 
-4. **Compile the contract:**  
+### Step 4️⃣: **Compile the contract**  
 ```bash  
 npx hardhat clean  
 npx hardhat compile  
 ```  
 
-5. **Deploy to Sepolia:**  
+### Step 5️⃣: **Deploy to Sepolia**  
 ```bash  
 npx hardhat run scripts/deploy.js --network sepolia  
 ```  
 
 ---
 
-## 🎫 Smart Contract Functions  
+## 🧪 **Testing**  
 
-### **User Functions**  
-- `buyTicket(uint ticketId)`: Purchase a ticket  
-- `getTicketOf(address person)`: Check ticket ownership  
-- `offerSwap(uint ticketId)`: Offer to swap tickets  
-- `acceptSwap(uint ticketId)`: Accept a swap offer  
-- `resaleTicket(uint price)`: List ticket for resale  
-- `acceptResale(uint ticketId)`: Buy a resale ticket  
-
-### **Manager Functions**  
-- `updateTicketPrice(uint newPrice)`: Update ticket price  
-- `addTickets(uint additionalTickets)`: Add more tickets  
-- `getTotalAvailableTickets()`: Check available tickets  
-
----
-
-## 🧪 Testing  
-
-- **Install Dependencies:**  
+✅ Run tests to ensure everything works as expected:  
 ```bash  
 npx hardhat test  
 ```  
 
-- **Test Cases Include:**  
-  - Contract deployment verification  
-  - Ticket purchase functionality  
-  - Ticket swap mechanism  
-  - Resale functionality  
-  - Service fee handling  
+### 🔍 **Test Cases Include**  
+- Contract deployment verification  
+- Ticket purchase and ownership functionality  
+- Ticket swapping mechanism  
+- Resale and pricing checks  
+- Proper service fee handling  
 
 ---
 
-## 🎨 UI Features  
+## 🎨 **UI Features**  
 
-- **Wallet Connection:** MetaMask integration, account display, and network validation  
-- **Ticket Management:** Purchase, swap, and resell tickets  
-- **Manager Dashboard:** Add tickets, update prices, and view statistics  
-- **Dark/Light Mode Theme:** Festival-themed animations with responsive design  
-
----
-
-## 🔐 Security  
-
-- **Environment Variables:** Never commit `.env` files.  
-- **Contract Security:**  
-  - One ticket per address  
-  - Manager-only functions  
-  - Automated service fee handling  
+🌟 **Festival-Inspired Design:** Responsive light/dark mode with festive animations  
+💳 **Wallet Integration:** Secure MetaMask login and network validation  
+🎟️ **Ticket Management:** Buy, swap, and resell tickets seamlessly  
+📊 **Manager Dashboard:** Manage tickets, view stats, and update prices  
 
 ---
 
-## 🌐 Network Setup  
+## 🔐 **Security**  
 
-Add Sepolia to MetaMask:  
+🔒 **Best Practices Followed**  
+- Sensitive keys stored in `.env` files  
+- Role-based contract functions (e.g., Manager-only features)  
+- Blockchain ensures single ownership of tickets  
+
+---
+
+## 🌐 **Network Setup**  
+
+💡 Add **Sepolia Testnet** to MetaMask for testing:  
 
 - **Network Name:** Sepolia Test Network  
 - **RPC URL:** [https://sepolia.infura.io/v3/](https://sepolia.infura.io/v3/)  
 - **Chain ID:** 11155111  
 - **Currency Symbol:** SepoliaETH  
-- **Block Explorer:** [https://sepolia.etherscan.io/](https://sepolia.etherscan.io/)  
+- **Explorer:** [https://sepolia.etherscan.io/](https://sepolia.etherscan.io/)  
 
 ---
 
-## 📞 Contact & Support  
+## 📞 **Contact & Support**  
 
-| Contact Method | Details           |  
-|----------------|-------------------|  
-| 👤 Developer   | Abhishek Yadav    |  
-| 🌐 GitHub      | [@abhiishek340](https://github.com/abhiishek340) |  
-| 📧 Email       | abhiishek340@gmail.com |  
-
----
-
-## 🙏 Acknowledgments  
-
-- Built for the Tihar Festival community  
-- Powered by Ethereum blockchain  
-- Deployed on Vercel  
-- Made with ❤️ for Nepal  
+| 📬 Contact Method | Details                                 |  
+|--------------------|-----------------------------------------|  
+| 👤 **Developer**    | Abhishek Yadav                        |  
+| 🌐 **GitHub**       | [@abhiishek340](https://github.com/abhiishek340) |  
+| 📧 **Email**        | abhiishek340@gmail.com                |  
 
 ---
+
+## 🙏 **Acknowledgments**  
+
+✨ **Special Thanks:**  
+- **Tihar Festival Community**  
+- **Ethereum Blockchain Technology**  
+- **Powered by Vercel Deployment**  
+
+---  
+

@@ -37,6 +37,7 @@ export default function Home() {
   const [eventLogs, setEventLogs] = useState([]);
   const [validationMessage, setValidationMessage] = useState('');
   const [ticketDetails, setTicketDetails] = useState(null);
+  const [returnTicketId, setReturnTicketId] = useState('');
 
   useEffect(() => {
     initWeb3();
@@ -373,11 +374,20 @@ export default function Home() {
   async function checkTicketOwnership() {
     if (!contract || !searchAddress) return;
     try {
+      // Validate the address format
+      if (!ethers.utils.isAddress(searchAddress)) {
+        alert("Please enter a valid Ethereum address");
+        return;
+      }
+
       const ticketId = await contract.getTicketOf(searchAddress);
       if (ticketId.toString() !== '0') {
+        const details = await contract.getTicketDetails(ticketId);
         setSearchedTicket({
           id: ticketId.toString(),
-          owner: searchAddress
+          owner: searchAddress,
+          isForSale: details.isForSale,
+          day: getTicketDay(ticketId.toString())
         });
       } else {
         setSearchedTicket(null);
@@ -385,7 +395,11 @@ export default function Home() {
       }
     } catch (error) {
       console.error("Error checking ticket:", error);
-      alert("Error: " + error.message);
+      if (error.message.includes("ENS")) {
+        alert("Please enter a valid Ethereum address (0x...)");
+      } else {
+        alert("Error: " + error.message);
+      }
     }
   }
 
@@ -450,6 +464,22 @@ export default function Home() {
     return id >= ticketDays[selectedDay].start && id <= ticketDays[selectedDay].end;
   });
 
+  async function returnTicket(ticketId) {
+    if (!contract) return;
+    setLoading(true);
+    try {
+      const tx = await contract.returnTicket(ticketId);
+      await tx.wait();
+      await loadAvailableTickets();
+      await loadOwnedTicket();
+      alert("Ticket returned successfully! Refund processed minus service fee.");
+    } catch (error) {
+      console.error("Error returning ticket:", error);
+      alert("Error: " + error.message);
+    }
+    setLoading(false);
+  }
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -472,6 +502,58 @@ export default function Home() {
             Connect Wallet
           </button>
         )}
+      </div>
+
+      {/* Get Ticket Number - Moved up */}
+      <div className={styles.card}>
+        <h2 className={styles.heading}>Get Your Ticket Number</h2>
+        <p className={styles.subtitle}>Forgot your ticket ID? Enter your wallet address below</p>
+        <div className={styles.lookupSection}>
+          <input
+            type="text"
+            className={styles.input}
+            placeholder="Enter wallet address (0x...)"
+            value={searchAddress}
+            onChange={(e) => setSearchAddress(e.target.value)}
+          />
+          <button 
+            className={styles.button}
+            onClick={checkTicketOwnership}
+            disabled={!searchAddress}
+          >
+            Find My Ticket
+          </button>
+        </div>
+        {searchedTicket && (
+          <div className={styles.searchResult}>
+            <h3>Ticket Found!</h3>
+            <p>Ticket ID: #{searchedTicket.id}</p>
+            <p>Owner: {searchedTicket.owner}</p>
+            <p>Day: {getTicketDay(searchedTicket.id)}</p>
+          </div>
+        )}
+      </div>
+
+      {/* Return Ticket - Moved up */}
+      <div className={styles.card}>
+        <h2 className={styles.heading}>Return Your Ticket</h2>
+        <p className={styles.subtitle}>Get a refund minus service fee</p>
+        <div className={styles.returnTicketSection}>
+          <input
+            type="number"
+            className={styles.input}
+            placeholder="Enter ticket ID to return"
+            value={returnTicketId}
+            onChange={(e) => setReturnTicketId(e.target.value)}
+          />
+          <button
+            className={styles.button}
+            onClick={() => returnTicket(returnTicketId)}
+            disabled={loading || !returnTicketId}
+          >
+            Return Ticket & Get Refund
+          </button>
+        </div>
       </div>
 
       {/* Manager Controls */}
